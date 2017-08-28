@@ -13,6 +13,16 @@
 		0B3921FE1F1C8887004A1346 /* EGE_Exam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B3921FC1F1C8887004A1346 /* EGE_Exam.xcdatamodeld */; };
 		0B3922001F1C8887004A1346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B3921FF1F1C8887004A1346 /* Assets.xcassets */; };
 		0B3922031F1C8887004A1346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B3922011F1C8887004A1346 /* LaunchScreen.storyboard */; };
+		0B39220D1F1C9189004A1346 /* EmphStdMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B39220C1F1C9189004A1346 /* EmphStdMode.swift */; };
+		0B3922111F1E009D004A1346 /* EmphStdModeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3922101F1E009D004A1346 /* EmphStdModeResults.swift */; };
+		0B60F8761F20956E00F9EDCF /* EmphTestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60F8751F20956E00F9EDCF /* EmphTestMode.swift */; };
+		0B60F8781F20959A00F9EDCF /* EmphTestModeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60F8771F20959A00F9EDCF /* EmphTestModeResults.swift */; };
+		0B60F87A1F20BBBD00F9EDCF /* OrphStdMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60F8791F20BBBD00F9EDCF /* OrphStdMode.swift */; };
+		0B60F87E1F20BBEF00F9EDCF /* OrphTestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60F87D1F20BBEF00F9EDCF /* OrphTestMode.swift */; };
+		0B60F8801F20BC0A00F9EDCF /* OrphTestModeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60F87F1F20BC0A00F9EDCF /* OrphTestModeResults.swift */; };
+		0B60F8821F20BC1A00F9EDCF /* OrphStdModeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60F8811F20BC1A00F9EDCF /* OrphStdModeResults.swift */; };
+		0BFFBEF41F48A5A80020E11D /* EmphStdRightWrong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFFBEF31F48A5A80020E11D /* EmphStdRightWrong.swift */; };
+		0BFFBEFA1F48BEE40020E11D /* OrphStdRightWrong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFFBEF91F48BEE40020E11D /* OrphStdRightWrong.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +34,16 @@
 		0B3921FF1F1C8887004A1346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B3922021F1C8887004A1346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B3922041F1C8887004A1346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B39220C1F1C9189004A1346 /* EmphStdMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphStdMode.swift; sourceTree = "<group>"; };
+		0B3922101F1E009D004A1346 /* EmphStdModeResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphStdModeResults.swift; sourceTree = "<group>"; };
+		0B60F8751F20956E00F9EDCF /* EmphTestMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphTestMode.swift; sourceTree = "<group>"; };
+		0B60F8771F20959A00F9EDCF /* EmphTestModeResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphTestModeResults.swift; sourceTree = "<group>"; };
+		0B60F8791F20BBBD00F9EDCF /* OrphStdMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrphStdMode.swift; sourceTree = "<group>"; };
+		0B60F87D1F20BBEF00F9EDCF /* OrphTestMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrphTestMode.swift; sourceTree = "<group>"; };
+		0B60F87F1F20BC0A00F9EDCF /* OrphTestModeResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrphTestModeResults.swift; sourceTree = "<group>"; };
+		0B60F8811F20BC1A00F9EDCF /* OrphStdModeResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrphStdModeResults.swift; sourceTree = "<group>"; };
+		0BFFBEF31F48A5A80020E11D /* EmphStdRightWrong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmphStdRightWrong.swift; sourceTree = "<group>"; };
+		0BFFBEF91F48BEE40020E11D /* OrphStdRightWrong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrphStdRightWrong.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,8 @@
 		0B3921F41F1C8887004A1346 /* EGE Exam */ = {
 			isa = PBXGroup;
 			children = (
+				0BFFBEF61F48BADA0020E11D /* Orph */,
+				0BFFBEF51F48BAA00020E11D /* Emph */,
 				0B3921F51F1C8887004A1346 /* AppDelegate.swift */,
 				0B3921F71F1C8887004A1346 /* ViewController.swift */,
 				0B3921F91F1C8887004A1346 /* Main.storyboard */,
@@ -65,6 +87,30 @@
 				0B3921FC1F1C8887004A1346 /* EGE_Exam.xcdatamodeld */,
 			);
 			path = "EGE Exam";
+			sourceTree = "<group>";
+		};
+		0BFFBEF51F48BAA00020E11D /* Emph */ = {
+			isa = PBXGroup;
+			children = (
+				0B39220C1F1C9189004A1346 /* EmphStdMode.swift */,
+				0BFFBEF31F48A5A80020E11D /* EmphStdRightWrong.swift */,
+				0B3922101F1E009D004A1346 /* EmphStdModeResults.swift */,
+				0B60F8771F20959A00F9EDCF /* EmphTestModeResults.swift */,
+				0B60F8751F20956E00F9EDCF /* EmphTestMode.swift */,
+			);
+			name = Emph;
+			sourceTree = "<group>";
+		};
+		0BFFBEF61F48BADA0020E11D /* Orph */ = {
+			isa = PBXGroup;
+			children = (
+				0B60F8791F20BBBD00F9EDCF /* OrphStdMode.swift */,
+				0B60F87D1F20BBEF00F9EDCF /* OrphTestMode.swift */,
+				0B60F87F1F20BC0A00F9EDCF /* OrphTestModeResults.swift */,
+				0B60F8811F20BC1A00F9EDCF /* OrphStdModeResults.swift */,
+				0BFFBEF91F48BEE40020E11D /* OrphStdRightWrong.swift */,
+			);
+			name = Orph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +187,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B3921FE1F1C8887004A1346 /* EGE_Exam.xcdatamodeld in Sources */,
+				0B60F8781F20959A00F9EDCF /* EmphTestModeResults.swift in Sources */,
+				0BFFBEF41F48A5A80020E11D /* EmphStdRightWrong.swift in Sources */,
 				0B3921F81F1C8887004A1346 /* ViewController.swift in Sources */,
+				0B60F8821F20BC1A00F9EDCF /* OrphStdModeResults.swift in Sources */,
+				0B60F87E1F20BBEF00F9EDCF /* OrphTestMode.swift in Sources */,
+				0B39220D1F1C9189004A1346 /* EmphStdMode.swift in Sources */,
+				0BFFBEFA1F48BEE40020E11D /* OrphStdRightWrong.swift in Sources */,
+				0B3922111F1E009D004A1346 /* EmphStdModeResults.swift in Sources */,
+				0B60F8801F20BC0A00F9EDCF /* OrphTestModeResults.swift in Sources */,
+				0B60F87A1F20BBBD00F9EDCF /* OrphStdMode.swift in Sources */,
+				0B60F8761F20956E00F9EDCF /* EmphTestMode.swift in Sources */,
 				0B3921F61F1C8887004A1346 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +364,7 @@
 				0B3922091F1C8887004A1346 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
