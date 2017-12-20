@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ударения"/>
                                 <connections>
-                                    <segue destination="lGG-Za-mgs" kind="show" id="w4c-3F-lZ7"/>
+                                    <segue destination="lGG-Za-mgs" kind="show" identifier="mainToEmph" id="w4c-3F-lZ7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nI8-u1-5gh">
@@ -49,7 +49,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Орфография"/>
                                 <connections>
-                                    <segue destination="NJ0-c0-ZDs" kind="show" id="MiL-ak-Kan"/>
+                                    <segue destination="NJ0-c0-ZDs" kind="show" identifier="mainToOrph" id="MiL-ak-Kan"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEL-mJ-b4T">
@@ -57,7 +57,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Пунктуация"/>
                                 <connections>
-                                    <segue destination="Fae-pv-jnP" kind="show" id="Cx3-1L-LZ6"/>
+                                    <segue destination="Fae-pv-jnP" kind="show" identifier="mainToPunct" id="Cx3-1L-LZ6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Обычный"/>
                                 <connections>
-                                    <segue destination="32I-ab-B0O" kind="show" id="BM6-mL-OqR"/>
+                                    <segue destination="32I-ab-B0O" kind="show" identifier="toEmphStd" id="BM6-mL-OqR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQ6-IU-sns">
@@ -93,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Тест "/>
                                 <connections>
-                                    <segue destination="rVo-V5-y0l" kind="show" id="EQ6-Eg-Zlr"/>
+                                    <segue destination="rVo-V5-y0l" kind="show" identifier="toEmphTest" id="EQ6-Eg-Zlr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWA-Fy-6gF">
@@ -101,7 +101,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Продвинутый"/>
                                 <connections>
-                                    <segue destination="nKA-v8-26U" kind="show" id="fQc-DF-hpY"/>
+                                    <segue destination="nKA-v8-26U" kind="show" identifier="toMainAdv" id="fQc-DF-hpY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,10 +201,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVJ-ks-RiH">
-                                <rect key="frame" x="209" y="176" width="150" height="315"/>
+                                <rect key="frame" x="359" y="176" width="0.0" height="315"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="315" id="5bq-yW-6jt"/>
-                                    <constraint firstAttribute="width" constant="150" id="AtE-Yq-uHJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -218,9 +217,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCd-At-pKh">
-                                <rect key="frame" x="26" y="176" width="150" height="315"/>
+                                <rect key="frame" x="26" y="176" width="0.0" height="315"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="7OA-X8-zzU"/>
                                     <constraint firstAttribute="height" constant="315" id="nBZ-KE-i28"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -233,8 +231,10 @@
                             <constraint firstItem="mjy-c0-CAI" firstAttribute="top" secondItem="lHa-Fu-ObZ" secondAttribute="bottom" constant="56" id="335-8B-i1P"/>
                             <constraint firstItem="NVJ-ks-RiH" firstAttribute="trailing" secondItem="SeX-Ee-kpY" secondAttribute="trailingMargin" id="9kh-bA-zty"/>
                             <constraint firstItem="lHa-Fu-ObZ" firstAttribute="centerX" secondItem="SeX-Ee-kpY" secondAttribute="centerX" id="IWB-19-Ruu"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qCd-At-pKh" secondAttribute="trailingMargin" id="Nwz-Dq-1OC"/>
                             <constraint firstItem="NVJ-ks-RiH" firstAttribute="top" secondItem="sXp-ox-MKb" secondAttribute="bottom" constant="156" id="eft-a6-bcb"/>
                             <constraint firstItem="qCd-At-pKh" firstAttribute="top" secondItem="sXp-ox-MKb" secondAttribute="bottom" constant="156" id="gB5-oj-sMb"/>
+                            <constraint firstItem="NVJ-ks-RiH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SeX-Ee-kpY" secondAttribute="leadingMargin" id="oIL-vW-Gqt"/>
                             <constraint firstItem="qCd-At-pKh" firstAttribute="leading" secondItem="SeX-Ee-kpY" secondAttribute="leadingMargin" constant="10" id="yjD-bN-3rN"/>
                         </constraints>
                     </view>
@@ -267,7 +267,7 @@
                                 </constraints>
                                 <state key="normal" title="Обычный"/>
                                 <connections>
-                                    <segue destination="fCL-0A-Ekv" kind="show" id="dQv-RY-0KS"/>
+                                    <segue destination="fCL-0A-Ekv" kind="show" identifier="toOrphStd" id="dQv-RY-0KS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeY-j0-DaX">
@@ -278,7 +278,7 @@
                                 </constraints>
                                 <state key="normal" title="Тест "/>
                                 <connections>
-                                    <segue destination="LoE-6M-wIS" kind="show" id="5kd-oY-KJC"/>
+                                    <segue destination="LoE-6M-wIS" kind="show" identifier="toOrphTest" id="5kd-oY-KJC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -315,7 +315,7 @@
                                 </constraints>
                                 <state key="normal" title="Обычный"/>
                                 <connections>
-                                    <segue destination="ZJm-rW-4LQ" kind="show" id="IK7-ra-skq"/>
+                                    <segue destination="ZJm-rW-4LQ" kind="show" identifier="toPunctStd" id="IK7-ra-skq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-J5-D2h">
@@ -326,7 +326,7 @@
                                 </constraints>
                                 <state key="normal" title="Тест"/>
                                 <connections>
-                                    <segue destination="81W-Bh-sCa" kind="show" id="5ag-nR-QDS"/>
+                                    <segue destination="81W-Bh-sCa" kind="show" identifier="toPunctTest" id="5ag-nR-QDS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -357,7 +357,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="QRD-4h-3QM" kind="show" id="mkn-hL-H0E"/>
+                        <segue destination="QRD-4h-3QM" kind="show" identifier="toPunctStdRes" id="mkn-hL-H0E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bf-yf-4CE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,7 +380,7 @@
                                 <rect key="frame" x="136.5" y="584" width="102" height="30"/>
                                 <state key="normal" title="Главное меню"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="GUj-Xq-DaO"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="fromPunctStdRes" id="GUj-Xq-DaO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIj-Kd-vJy">
@@ -433,7 +433,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="OSy-Pb-rL6" kind="show" id="aWp-4T-Bhs"/>
+                        <segue destination="OSy-Pb-rL6" kind="show" identifier="toPunctTestRes" id="aWp-4T-Bhs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQR-9U-v7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -587,7 +587,7 @@
                                 <rect key="frame" x="136" y="584" width="102" height="30"/>
                                 <state key="normal" title="Главное меню"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="1FJ-Cm-LlH"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="fromOrphTestRes" id="1FJ-Cm-LlH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-e8-fHp">
@@ -696,7 +696,7 @@
                                 <rect key="frame" x="136" y="584" width="102" height="30"/>
                                 <state key="normal" title="Главное меню"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="cKr-2M-lW5"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="fromOrphStdRes" id="cKr-2M-lW5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQd-hw-7BH">
@@ -947,7 +947,7 @@
                                 <rect key="frame" x="136" y="581" width="102" height="30"/>
                                 <state key="normal" title="Главное меню"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="b1Y-3U-SWN"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="fromOrphStdRes" id="b1Y-3U-SWN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -972,6 +972,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b1Y-3U-SWN"/>
+        <segue reference="Wzt-VP-h94"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -2,4 +2,99 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EGE Exam/OrphStdModeResults.swift"
+            timestampString = "529259520.572522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EGE_Exam.OrphStdModeResults.__deallocating_deinit"
+                  moduleName = "EGE Exam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozaliaamirova/development/EGE%20Exam/EGE%20Exam/OrphStdModeResults.swift"
+                  timestampString = "535467511.294411"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EGE_Exam.OrphStdModeResults.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; EGE_Exam.OrphStdModeResults"
+                  moduleName = "EGE Exam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozaliaamirova/development/EGE%20Exam/EGE%20Exam/OrphStdModeResults.swift"
+                  timestampString = "535467511.306387"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EGE_Exam.OrphStdModeResults.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; EGE_Exam.OrphStdModeResults"
+                  moduleName = "EGE Exam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozaliaamirova/development/EGE%20Exam/EGE%20Exam/OrphStdModeResults.swift"
+                  timestampString = "535467511.310956"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EGE_Exam.OrphStdModeResults.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;EGE_Exam.OrphStdModeResults&gt;"
+                  moduleName = "EGE Exam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozaliaamirova/development/EGE%20Exam/EGE%20Exam/OrphStdModeResults.swift"
+                  timestampString = "535467511.315473"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EGE_Exam.OrphStdModeResults.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;EGE_Exam.OrphStdModeResults&gt;"
+                  moduleName = "EGE Exam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rozaliaamirova/development/EGE%20Exam/EGE%20Exam/OrphStdModeResults.swift"
+                  timestampString = "535467511.320521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
