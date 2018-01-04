@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SQLite
 
 class EmphStdMode: UIViewController {
     
@@ -15,8 +16,10 @@ class EmphStdMode: UIViewController {
     @IBOutlet weak var word2: UIButton!
     @IBOutlet weak var counter: UILabel!
     
-    let rightWords = ["звонИт", "баловАть", "красИвее", "правильное1", "правильное2", "правильное3", "правильное4"]
-    let wrongWords = ["звОнит", "бАловать", "красивЕе", "неправильное1", "неправильное2", "неправильное3", "неправильное4"]
+    let totalNumberOfWords = 10
+    
+    var rightWords = [String]()
+    var wrongWords = [String]()
 //    var lineFields = [String]()
     var rightResults = [String]()
     var wrongResults = [String]()
@@ -29,8 +32,38 @@ class EmphStdMode: UIViewController {
     var wordUntapped = ""
     var answer = false
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        do {
+            let path = NSSearchPathForDirectoriesInDomains(
+                .documentDirectory, .userDomainMask, true
+                ).first!
+            let db = try Connection("\(path)/EGE_DB.sqlite3")
+            
+            let accents = Table("Accent_Words")
+            let right = Expression<String>("right_word")
+            let wrong = Expression<String>("wrong_word")
+            let wordId = Expression<Int>("word_id")
+            
+            let totalWordInTable: Int = try db.scalar(accents.count)
+            
+            
+            for i in 0...totalNumberOfWords-1 {
+                let wordNumber = Int(arc4random_uniform(UInt32(totalWordInTable)))
+                rightWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable)+1))![right])
+                wrongWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable)+1))![wrong])
+            }
+        
+            
+        } catch {
+            
+        }
+        
+        
         
 //        let filePath = self.dataFilePath()
 //        if (FileManager.default.fileExists(atPath: filePath)) {
@@ -99,10 +132,10 @@ class EmphStdMode: UIViewController {
    
     func nextWord() {
         totalCount += 1
-        counter.text = String(rightCount)
+        counter.text = String(rightCount) + "/" + String(totalNumberOfWords)
         
         //Перейти к экрану eightWrong
-        if totalCount > 5 {
+        if totalCount > totalNumberOfWords {
             performSegue(withIdentifier: "EmphToResults", sender: nil)
         }
         performSegue(withIdentifier: "EmphStdRightWrong", sender: nil)
@@ -115,7 +148,7 @@ class EmphStdMode: UIViewController {
             word2.setTitle(rightWords[n], for: .normal)
             word1.setTitle(wrongWords[n], for: .normal)
         }
-        n = (n + 1) % 3
+        n = (n + 1) % totalNumberOfWords
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
