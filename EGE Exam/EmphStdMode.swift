@@ -16,11 +16,10 @@ class EmphStdMode: UIViewController {
     @IBOutlet weak var word2: UIButton!
     @IBOutlet weak var counter: UILabel!
     
-    let totalNumberOfWords = 10
+    let totalNumberOfQuestions = 10
     
     var rightWords = [String]()
     var wrongWords = [String]()
-//    var lineFields = [String]()
     var rightResults = [String]()
     var wrongResults = [String]()
     
@@ -31,17 +30,11 @@ class EmphStdMode: UIViewController {
     var wordTapped = ""
     var wordUntapped = ""
     var answer = false
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         do {
-            let path = NSSearchPathForDirectoriesInDomains(
-                .documentDirectory, .userDomainMask, true
-                ).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             let db = try Connection("\(path)/EGE_DB.sqlite3")
             
             let accents = Table("Accent_Words")
@@ -51,47 +44,20 @@ class EmphStdMode: UIViewController {
             
             let totalWordInTable: Int = try db.scalar(accents.count)
             
-            
-            for i in 0...totalNumberOfWords-1 {
+            for _ in 0...totalNumberOfQuestions - 1 {
                 let wordNumber = Int(arc4random_uniform(UInt32(totalWordInTable)))
-                rightWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable)+1))![right])
-                wrongWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable)+1))![wrong])
+                rightWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable) + 1))![right])
+                wrongWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable) + 1))![wrong])
             }
-        
-            
         } catch {
-            
+            print("Error while connection to Database and reading words")
         }
-        
-        
-        
-//        let filePath = self.dataFilePath()
-//        if (FileManager.default.fileExists(atPath: filePath)) {
-//            let array = NSArray(contentsOfFile: filePath) as! [String]
-//            for i in 0 ..< array.count {
-//                lineFields[i] = array[i]
-//            }
-//        }
-//        let app = UIApplication.shared
-//        NotificationCenter.default.addObserver(self,
-//            selector: "applicationWillResignActive",
-//            name: NSNotification.Name.UIApplicationWillResignActive,
-//            object: app)
-        
         nextWord()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-//    func getRightResults() -> [String] {
-//        return rightWords
-//    }
-//    func getWrongResults() -> [String] {
-//        return wrongWords
-//    }
     
    
     @IBAction func word1Tapped(_ sender: Any) {
@@ -132,10 +98,10 @@ class EmphStdMode: UIViewController {
    
     func nextWord() {
         totalCount += 1
-        counter.text = String(rightCount) + "/" + String(totalNumberOfWords)
+        counter.text = String(rightCount) + "/" + String(totalNumberOfQuestions)
         
         //Перейти к экрану eightWrong
-        if totalCount > totalNumberOfWords {
+        if totalCount > totalNumberOfQuestions {
             performSegue(withIdentifier: "EmphToResults", sender: nil)
         }
         performSegue(withIdentifier: "EmphStdRightWrong", sender: nil)
@@ -148,7 +114,7 @@ class EmphStdMode: UIViewController {
             word2.setTitle(rightWords[n], for: .normal)
             word1.setTitle(wrongWords[n], for: .normal)
         }
-        n = (n + 1) % totalNumberOfWords
+        n = (n + 1) % totalNumberOfQuestions
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -162,19 +128,4 @@ class EmphStdMode: UIViewController {
         }
     }
 
-    
-//    func dataFilePath() -> String {
-//        let paths = NSSearchPathForDirectoriesInDomains(
-//            FileManager.SearchPathDirectory.documentDirectory,
-//            FileManager.SearchPathDomainMask.userDomainMask, true)
-//        let documentsDirectory = paths[0] as NSString
-//        return documentsDirectory.appendingPathComponent("data.plist")
-//            as String
-//    }
-//    
-//    func applicationWillResignActive(notification: NSNotification) {
-//        let filePath = self.dataFilePath()
-//        let array = (self.lineFields as NSArray).value(forKey: "text") as! NSArray
-//        array.write(toFile: filePath, atomically: true)
-//    }
 }

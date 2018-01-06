@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SQLite
 
 class EmphTestMode: UIViewController {
     
@@ -18,9 +19,10 @@ class EmphTestMode: UIViewController {
     @IBOutlet weak var word5: UIButton!
     @IBOutlet weak var counter: UILabel!
     
-    let rightWords = ["звонИт", "баловАть", "красИвее", "правильное1", "правильное2", "правильное3", "правильное4"]
-    let wrongWords = ["звОнит", "бАловать", "красивЕе", "неправильное1", "неправильное2", "неправильное3", "неправильное4"]
+    let totalNumberOfQuestions = 10
     
+    var rightWords = [String]()
+    var wrongWords = [String]()
     var rightResults = [String]()
     var wrongResults = [String]()
     
@@ -31,6 +33,27 @@ class EmphTestMode: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            let db = try Connection("\(path)/EGE_DB.sqlite3")
+            
+            let accents = Table("Accent_Words")
+            let right = Expression<String>("right_word")
+            let wrong = Expression<String>("wrong_word")
+            let wordId = Expression<Int>("word_id")
+            
+            let totalWordInTable: Int = try db.scalar(accents.count)
+            
+            for _ in 0...totalNumberOfQuestions * 6 {
+                let wordNumber = Int(arc4random_uniform(UInt32(totalWordInTable)))
+                rightWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable) + 1))![right])
+                wrongWords.append(try db.pluck(accents.filter(wordId == (wordNumber % totalWordInTable) + 1))![wrong])
+            }
+            print("Rithgt words: ")
+            print(rightWords)
+        } catch {
+            print("Error while connection to Database and reading words")
+        }
         nextWord()
     }
     
@@ -57,12 +80,12 @@ class EmphTestMode: UIViewController {
         if randIndex == 1 {
             //слово нажато правильно
             self.view.backgroundColor = UIColor.green
-            rightResults.append(word1.currentTitle!)
+            rightResults.append(word2.currentTitle!)
             rightCount += 1
         } else if randIndex != 1 {
             //слово нажато неправильно
             self.view.backgroundColor = UIColor.red
-            wrongResults.append(word1.currentTitle!)
+            wrongResults.append(word2.currentTitle!)
         }
         nextWord()
     }
@@ -71,12 +94,12 @@ class EmphTestMode: UIViewController {
         if randIndex == 2 {
             //слово нажато правильно
             self.view.backgroundColor = UIColor.green
-            rightResults.append(word1.currentTitle!)
+            rightResults.append(word3.currentTitle!)
             rightCount += 1
         } else if randIndex != 2 {
             //слово нажато неправильно
             self.view.backgroundColor = UIColor.red
-            wrongResults.append(word1.currentTitle!)
+            wrongResults.append(word3.currentTitle!)
         }
         nextWord()
     }
@@ -85,12 +108,12 @@ class EmphTestMode: UIViewController {
         if randIndex == 3 {
             //слово нажато правильно
             self.view.backgroundColor = UIColor.green
-            rightResults.append(word1.currentTitle!)
+            rightResults.append(word4.currentTitle!)
             rightCount += 1
         } else if randIndex != 3 {
             //слово нажато неправильно
             self.view.backgroundColor = UIColor.red
-            wrongResults.append(word1.currentTitle!)
+            wrongResults.append(word4.currentTitle!)
         }
         nextWord()
     }
@@ -99,20 +122,23 @@ class EmphTestMode: UIViewController {
         if randIndex == 4 {
             //слово нажато правильно
             self.view.backgroundColor = UIColor.green
-            rightResults.append(word1.currentTitle!)
+            rightResults.append(word5.currentTitle!)
             rightCount += 1
         } else if randIndex != 4 {
             //слово нажато неправильно
             self.view.backgroundColor = UIColor.red
-            wrongResults.append(word1.currentTitle!)
+            wrongResults.append(word5.currentTitle!)
         }
         nextWord()
     }
     
     func nextWord() {
         totalCount += 1
-        counter.text = String(rightCount)
-        randIndex = Int(arc4random()) % 6
+        if totalCount > totalNumberOfQuestions {
+            performSegue(withIdentifier: "EmphTestToResults", sender: nil)
+        }
+        counter.text = String(rightCount) + "/" + String(totalNumberOfQuestions)
+        randIndex = Int(arc4random()) % 5
         if randIndex == 0 {
             word1.setTitle(rightWords[n], for: .normal)
             word2.setTitle(wrongWords[n+1], for: .normal)
@@ -148,10 +174,8 @@ class EmphTestMode: UIViewController {
             word4.setTitle(wrongWords[n+3], for: .normal)
             word5.setTitle(rightWords[n+4], for: .normal)
         }
-        n = (n + 1) % 3
-        if totalCount > 5 {
-            performSegue(withIdentifier: "EmphTestToResults", sender: nil)
-        }
+        n += 5
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
