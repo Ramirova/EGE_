@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SQLite
 
 class OrphStdMode: UIViewController {
     
@@ -16,8 +17,9 @@ class OrphStdMode: UIViewController {
     
     @IBOutlet weak var counter: UILabel!
     
-    let rightWords = ["звонИт", "баловАть", "красИвее", "правильное1", "правильное2", "правильное3", "правильное4"]
-    let wrongWords = ["звОнит", "бАловать", "красивЕе", "неправильное1", "неправильное2", "неправильное3", "неправильное4"]
+    let totalNumberOfQuestions = 10
+    var rightWords = [String]()
+    var wrongWords = [String]()
     //    var lineFields = [String]()
     var rightResults = [String]()
     var wrongResults = [String]()
@@ -32,6 +34,49 @@ class OrphStdMode: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        do {
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            let db = try Connection("\(path)/EGE_DB.sqlite3")
+            
+            let grammar = Table("Grammar_Words")
+            let startPartColumn = Expression<String>("start_part_word")
+            let endPartColumn = Expression<String>("end_part_word")
+            let rightLetterColumn = Expression<String>("right_letter")
+            let wordId = Expression<Int>("word_id")
+            
+            let totalWordInTable: Int = try db.scalar(grammar.count)
+            
+            for _ in 0...totalNumberOfQuestions - 1 {
+                let wordNumber = Int(arc4random_uniform(UInt32(totalWordInTable)))
+                let startPart = try db.pluck(grammar.filter(wordId == (wordNumber % totalWordInTable) + 1))![startPartColumn]
+                let endPart = try db.pluck(grammar.filter(wordId == (wordNumber % totalWordInTable) + 1))![endPartColumn]
+                let rightLetter = try db.pluck(grammar.filter(wordId == (wordNumber % totalWordInTable) + 1))![rightLetterColumn]
+                var wrongLetter = ""
+                
+                switch rightLetter {
+                case "а":
+                    wrongLetter = "о"
+                case "о":
+                    wrongLetter = "а"
+                case "и":
+                    wrongLetter = "е"
+                case "е":
+                    wrongLetter = "и"
+                case "ы":
+                    wrongLetter = "и"
+                default:
+                    wrongLetter = ""
+                }
+                rightWords.append(startPart + rightLetter + endPart)
+                wrongWords.append(startPart + wrongLetter + endPart)
+            }
+        } catch {
+            print("Error while connection to Database and reading words")
+        }
+        print(rightWords)
+        print(wrongWords)
         nextWord()
     }
     
@@ -80,7 +125,7 @@ class OrphStdMode: UIViewController {
     func nextWord() {
         totalCount += 1
         counter.text = String(rightCount)
-        if totalCount > 5 {
+        if totalCount > totalNumberOfQuestions {
             performSegue(withIdentifier: "OrphToResults", sender: nil)
         }
         performSegue(withIdentifier: "OrphStdRightWrong", sender: nil)
@@ -93,7 +138,7 @@ class OrphStdMode: UIViewController {
             word2.setTitle(rightWords[n], for: .normal)
             word1.setTitle(wrongWords[n], for: .normal)
         }
-        n = (n + 1) % 3
+        n = (n + 1) % totalNumberOfQuestions
         
     }
     
